@@ -1,0 +1,204 @@
+/** Styling for main header in application (Playwright Web Scraper) */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+/** Error text styling */
+.errorText {
+  color: red;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+/** General button styling */
+.buttons {
+  cursor: pointer;
+}
+
+/** Styling for container that holds the main content on the screen = data to display */
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  padding: 1rem;
+}
+
+/** The outer container that wraps around the input search bar and table */
+.tableWrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+/** Any a tag links styling */
+.links {
+  color: blue;
+  text-decoration: underline;
+}
+
+/** Styling that allows us to position pagination buttons and the current page count */
+.tableFooterContent {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/** Styling for pagination buttons */
+.paginationButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/** Styling for a hidden element that we want to toggle in the display to adjust the footer elements positions */
+.hiddenElement {
+  visibility: hidden;
+}
+
+/** Styling for the input search bar for searching for articles by titles */
+.inputStyling {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* Styling for small screens up to desktop size screens */
+@media screen and (max-width: 1535px) {
+  /** For the card view add a bit of padding in the right/left directions for improved visual */
+  .tableWrapper {
+    padding: 0 1rem;
+  }
+
+  /** Remove the hidden element on non-desktop size screens so it doesn't affect the tableFooterContent class justify-between rule */
+  .hiddenElement {
+    display: none;
+  }
+
+  /** Style table element for non-desktop screens */
+  .tableWrapper table {
+    width: 100%;
+    min-width: auto;
+  }
+
+  /** Break table default styling to look like cards for non-desktop screens */
+  .tableWrapper table,
+  .tableWrapper thead,
+  .tableWrapper tbody,
+  .tableWrapper tr,
+  .tableWrapper tfoot {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /** Remove the the table column headers for non-desktop screens */
+  .tableWrapper thead {
+    display: none;
+  }
+
+  /** Style table rows for non-desktop screens */
+  .tableWrapper tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  /** Styles table data cells for non-desktop screens */
+  .tableWrapper td {
+    display: flex;
+    text-align: left;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    white-space: normal; /** Allow word wrapping */
+    word-wrap: break-word; /* Break long words at nice points (for older browsers) */
+    overflow-wrap: break-word; /* Does same thing as above (for newer browsers) */
+  }
+
+  /** Remove the bottom border for the last element in the card for aesthetic purposes */
+  .tableWrapper td:last-child {
+    border-bottom: none;
+  }
+
+  /* Prevent URLs from overflowing" */
+  .links {
+    word-break: break-all; /* Break URLs at any character */
+  }
+}
+
+/** Styling for desktop size screens */
+@media screen and (min-width: 1536px) {
+  /** Adjust header size for desktop screens */
+  .header {
+    font-size: 2.5rem;
+  }
+
+  /** Shrink table width for desktop screens */
+  .tableWrapper {
+    display: flex;
+    width: 85%;
+    overflow-x: auto;
+    padding: 0;
+  }
+
+  /** Revert table display to default as specified in MDN docs and style additional properties */
+  .tableWrapper table {
+    display: table;
+    font-size: 0.875rem;
+    min-width: 600px;
+  }
+
+  /** Revert table header display to default as specified in MDN docs */
+  .tableWrapper thead {
+    display: table-header-group;
+  }
+
+  /** Revert table body display to default as specified in MDN docs */
+  .tableWrapper tbody {
+    display: table-row-group;
+  }
+
+  /** Revert table footer display to default as specified in MDN docs */
+  .tableWrapper tfoot {
+    display: table-footer-group;
+  }
+
+  /** Revert table rows display to default as specified in MDN docs and style additional properties */
+  .tableWrapper tr {
+    display: table-row;
+    margin-bottom: 0;
+    border: none;
+    padding: 0;
+  }
+
+  /** Revert table cells (head and data) display to default as specified in MDN docs and style additional properties*/
+  .tableWrapper th,
+  .tableWrapper td {
+    display: table-cell;
+    padding: 0.5rem;
+    white-space: nowrap;
+    border-bottom: 1px solid #eee;
+  }
+
+  /** Adjust width of input search bar for desktop screens */
+  .inputStyling {
+    width: 40%;
+  }
+
+  /** Adjust gap for pagination buttons on desktop screens */
+  .paginationButtons {
+    gap: 1rem;
+  }
+}
