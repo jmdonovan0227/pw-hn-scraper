@@ -70,13 +70,13 @@ export function DataTable<TData, TValue>({
 
   if (isLoading || isRefetching) {
     return (
-      <div className={styles.tableWrapper}>
+      <div className={styles.loadingAndErrorWrapper}>
         <Spinner />
       </div>
     );
   } else if (isError) {
     return (
-      <div className={styles.tableWrapper}>
+      <div className={styles.loadingAndErrorWrapperr}>
         <span className={styles.errorText}>
           Sorry, there was an error fetching 100 articles...
         </span>
